@@ -1,0 +1,34 @@
+// Project variables
+// Note: Prefer using framework variables
+
+//$blue: #1a608b;
+//
+//$text-color: #333;
+
+$primary-color: #ea40a5;
+//$sub-color: $primary-color;
+
+//$font: 'Open Sans', serif;
+//$sub-font: $font;
+
+// Project mixins
+
+// Custom fonts
+:root {
+  --content-size: 80rem;
+}
+
+$teal: #74bbba;
+$dark_aqua: #15cccc;
+$violet: #41296e;
+$pink: #ea40a5;
+$dark_pink: #b1128a;
+$yellow: #ffd819;
+$gray: #e6e6e6;
+
+$main_color: #fff;
+$sub_color: $violet;
+
+$text_color: $violet;
+
+$font: 'Museo-sans', sans-serif;
