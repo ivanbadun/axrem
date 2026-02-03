@@ -42,8 +42,6 @@
 </footer>
 <!-- END of footer -->
 
-ebdfjbf
-
 <?php wp_footer(); ?>
 </body>
 </html>

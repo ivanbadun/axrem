@@ -32,7 +32,7 @@ use theme\FoundationNavigation;
 <header class="header">
     <div class="grid-container menu-grid-container">
         <div class="medium-4 small-12 cell">
-            <div class="logo text-center medium-text-left" style=''>
+            <div class="logo text-center medium-text-left">
                 <h1>
                     <?php show_custom_logo(); ?><span class="show-for-sr"><?php echo get_bloginfo('name'); ?></span>
                 </h1>
