@@ -5,40 +5,61 @@
 ?>
 
 <!-- BEGIN of footer -->
-<footer class="footer">
+<footer class="footer" style='background-color: violet;'>
     <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell large-3">
-                <div class="footer__logo">
-                    <?php if ($footer_logo = get_field('footer_logo', 'options')) {
-                        echo wp_get_attachment_image($footer_logo['id'], 'medium');
-                    } else {
-                        show_custom_logo();
-                    } ?>
+        <div class="grid-container" style='display: flex; justify-content: space-between; padding: 20px'>
+            <?php if (get_field('footer_big_text')): ?>
+                <div>
+                    <?php the_field('footer_big_text') ?>
                 </div>
-            </div>
-            <div class="cell large-6">
-                <?php if (has_nav_menu('footer-menu')) {
-                    wp_nav_menu(['theme_location' => 'footer-menu', 'menu_class' => 'footer-menu', 'depth' => 1]);
-                } ?>
-            </div>
-            <div class="cell large-3 footer__sp">
-                <?php get_template_part('parts/socials'); // Social profiles?>
-            </div>
+            <?php endif; ?>
+            <?php if( have_rows('footer_repeater') ): ?>
+                <div class="container__news">
+                    <?php while( have_rows('footer_repeater') ): the_row(); ?>
+                        <?php
+                        $link_data = get_sub_field('footer_link');
+                        $text = get_sub_field('footer_button_text');
+                        ?>
+                        <?php if( $link_data ): ?>
+                            <div>
+                                <a href="<?php echo esc_url($link_data['url']); ?>"
+                                   target="<?php echo esc_attr($link_data['target']); ?>"
+                                   style="
+                                        display: block;
+                                        text-decoration: none;
+                                        background-color: #ffffff;
+                                        color: #000000;
+                                        padding: 12px 20px;
+                                        font-size: 18px;
+                                   ">
+                                    <span>
+                                        <span>
+                                            <?php echo $text ? esc_html($text) : esc_html($link_data['title']); ?>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
         </div>
+
+        <?php if ($copyright = get_field('copyright', 'options')) { ?>
+            <div class="grid-container" style='display: flex; justify-content: space-between'>
+                <div>
+                    <?php echo $copyright; ?>
+                </div>
+                <?php if (get_field('footer_text')): ?>
+                    <div>
+                        <?php the_field('footer_text') ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php } ?>
     </div>
 
-    <?php if ($copyright = get_field('copyright', 'options')) { ?>
-        <div class="footer__copy">
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell ">
-                        <?php echo $copyright; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
 </footer>
 <!-- END of footer -->
 

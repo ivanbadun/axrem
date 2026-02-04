@@ -45,7 +45,7 @@
 
   .top-bar {
     display: none;
-    background: $primary-color; /* menu list background color */
+    background: $teal; /* menu list background color */
   }
 
   .header-menu {
@@ -53,7 +53,7 @@
 
     li {
       > a {
-        background: $primary-color; /* menu item background color */
+        background: $teal; /* menu item background color */
         color: $white; /* menu item text color */
         line-height: 45px;
 
@@ -61,7 +61,7 @@
           &,
           & + .submenu-toggle {
             background: darken(
-              $primary-color,
+              $teal,
               5
             ); /* menu item background color on hover */
           }
@@ -74,7 +74,7 @@
         > a,
         .submenu-toggle {
           background: lighten(
-            $primary-color,
+            $teal,
             5
           ); /* current/parent menu item background color */
         }
@@ -84,7 +84,7 @@
         > a,
         .submenu-toggle {
           background: darken(
-            $primary-color,
+            $teal,
             3
           ); /* menu item background color on open dropdown */
         }
@@ -123,11 +123,11 @@
       > a {
         /* Regular menu item style */
         line-height: 40px;
-        color: $primary-color;
+        color: $main_color;
 
         &:hover {
           /* menu item style on hover */
-          background: $primary-color;
+          background: $teal;
           color: $white;
         }
       }
@@ -137,7 +137,7 @@
       &.current_page_parent {
         > a {
           /* Style of Current page and Ancestor page */
-          background: $primary-color;
+          background: $teal;
           color: $white;
         }
       }
@@ -151,7 +151,7 @@
       &.is-active > a {
         /* Parent link style on dropdown hover */
         background: $white;
-        color: $primary-color;
+        color: $teal;
       }
     }
 
@@ -169,12 +169,12 @@
         > a {
           /* Regular link in dropdown */
           background: $white;
-          color: $primary-color;
+          color: $teal;
           line-height: 30px;
 
           &:hover {
             /* Dropdown link on hover */
-            background: lighten($primary-color, 10);
+            background: lighten($teal, 10);
             color: $white;
           }
         }
@@ -183,7 +183,7 @@
         &.current_page_ancestor,
         &.current_page_parent {
           > a {
-            background: lighten($primary-color, 10);
+            background: lighten($teal, 10);
             color: $white;
           }
         }

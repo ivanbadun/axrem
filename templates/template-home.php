@@ -5,9 +5,7 @@
 get_header(); ?>
 
 <!--HOME PAGE SLIDER-->
-<?php if (shortcode_exists('slider')) {
-    echo do_shortcode('[slider]');
-} ?>
+<?php get_template_part('parts/tophome');?>
 <!--END of HOME PAGE SLIDER-->
 
 <!-- BEGIN of main content -->
@@ -24,5 +22,8 @@ get_header(); ?>
     </div>
 </div>
 <!-- END of main content -->
+
+<?php get_template_part('parts/aboutfile');?>
+<?php get_template_part('parts/newsfile');?>
 
 <?php get_footer(); ?>

@@ -1,28 +1,35 @@
-<!-- BEGIN of Post -->
+<?php
+$thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+$is_cat    = has_category('Members Document');
+
+// 1. Define $cat_name (it was missing in your snippet)
+$categories = get_the_category();
+$cat_name   = !empty($categories) ? $categories[0]->name : '';
+
+$text_color = $thumb_url ? '#ffffff' : '#333333';
+$overlay    = $is_cat ? 'rgba(255, 65, 96, 0.5)' : 'rgba(0,0,0,0.3)';
+
+// 2. Use double quotes so PHP can "see" your variables inside the string
+$style = $thumb_url
+    ? "background-image: linear-gradient({$overlay}, {$overlay}), url('{$thumb_url}'); color: {$text_color};"
+    : "background-color: #ffffff; color: {$text_color};";
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('preview preview--' . get_post_type()); ?>>
-    <div class="grid-x grid-margin-x">
-        <?php if (has_post_thumbnail()) { ?>
-            <div class="medium-4 small-12 cell text-center medium-text-left">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <?php the_post_thumbnail('medium', ['class' => 'preview__thumb']); ?>
-                </a>
+    <div class='card__news' style="<?php echo $style; ?>">
+
+        <a href="<?php the_permalink(); ?>" style="text-decoration: none; color: inherit;">
+            <div>
+                <p class='cat__news'>
+                    <?php echo esc_html($cat_name); ?>
+                </p>
+                <h2>
+                    <?php the_title(); ?>
+                </h2>
+                <p>
+                    <?php echo get_the_date(); ?>
+                </p>
             </div>
-        <?php } ?>
-        <div class="cell auto">
-            <h3 class="preview__title">
-                <a href="<?php the_permalink(); ?>"
-                   title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'fwp'), the_title_attribute('echo=0'))); ?>"
-                   rel="bookmark"><?php echo get_the_title() ?: __('No title', 'fwp'); ?>
-                </a>
-            </h3>
-            <?php if (is_sticky()) { ?>
-                <span class="secondary label preview__sticky"><?php _e('Sticky', 'fwp'); ?></span>
-            <?php } ?>
-            <div class="preview__excerpt">
-                <?php the_excerpt(); // Use wp_trim_words() instead if you need specific number of words?>
-            </div>
-            <p class="preview__meta"><?php echo sprintf(__('Written by %s on %s', 'fwp'), get_the_author_posts_link(), get_the_time(get_option('date_format'))); ?></p>
-        </div>
+        </a>
     </div>
 </article>
-<!-- END of Post -->

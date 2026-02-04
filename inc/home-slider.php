@@ -265,6 +265,8 @@ add_shortcode('slider', function () {
                                 <div class="cell">
                                     <h3><?php the_title(); ?></h3>
                                     <?php the_content(); ?>
+                                    <?php the_content(); ?>
+
                                 </div>
                             </div>
                         </div>

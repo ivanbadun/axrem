@@ -8,21 +8,24 @@ get_header(); ?>
 
 <main class="main-content">
     <div class="grid-container">
+
         <div class="grid-x grid-margin-x posts-list">
             <!-- BEGIN of Blog posts -->
             <div class="large-8 medium-8 small-12 cell">
-                <?php if (have_posts()) { ?>
-                    <?php while (have_posts()) {
-                        the_post(); ?>
-                        <?php get_template_part('parts/loop', 'post'); // Post item?>
+                <div class='container__news'>
+                    <?php if (have_posts()) { ?>
+                        <?php while (have_posts()) {
+                            the_post(); ?>
+                            <?php get_template_part('parts/loop', 'post'); // Post item?>
+                        <?php } ?>
                     <?php } ?>
-                <?php } ?>
+                </div>
+
                 <!-- BEGIN of pagination -->
                 <?php foundation_pagination(); ?>
                 <!-- END of pagination -->
             </div>
             <!-- END of Blog posts -->
-            <?php get_template_part('parts/aboutfile'); // Post item?>
             <!-- BEGIN of sidebar -->
             <div class="large-4 medium-4 small-12 cell sidebar">
                 <?php get_sidebar('right'); ?>
