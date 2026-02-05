@@ -195,3 +195,19 @@
     }
   }
 }
+
+.section__logo {
+  background-color: $teal;
+}
+
+.section__menu {
+  background-color: $violet;
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+}

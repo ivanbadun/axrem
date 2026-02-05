@@ -164,3 +164,17 @@ add_image_size('large_high', 1024, 0, false);
 
 // Disable gutenberg
 add_filter('use_block_editor_for_post_type', '__return_false');
+
+add_action('acf/init', 'register_events_widget_block');
+function register_events_widget_block() {
+    if( function_exists('acf_register_block_type') ) {
+        acf_register_block_type(array(
+            'name'              => 'events_list_widget',
+            'title'             => 'Events List',
+            'render_template'   => 'templates/events-sidebar.php',
+            'category'          => 'widgets',
+            'icon'              => 'calendar-alt',
+            'supports'          => array('align' => false),
+        ));
+    }
+}

@@ -11,3 +11,61 @@
     margin-bottom: 0;
   }
 }
+
+.custom-event-widget,
+.wp-block-group {
+  background: $white;
+  margin-bottom: 20px;
+}
+
+.widget-header,
+.wp-block-heading {
+  background: $yellow;
+  color: $white;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.wp-block-heading {
+  background: $violet;
+}
+
+.widget-content,
+.wp-block-latest-posts {
+  padding: 15px;
+}
+
+.event-entry {
+  margin-bottom: 15px;
+}
+
+.event-title {
+  font-weight: 600;
+  color: $violet;
+  font-size: 1.1rem;
+}
+
+.wp-block-latest-posts__post-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $violet;
+}
+
+.event-date {
+  color: $violet;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+.all-events-link {
+  color: $yellow;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.wp-block-latest-posts__list {
+  margin: 0;
+}

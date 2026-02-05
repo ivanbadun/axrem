@@ -57,6 +57,7 @@
 }
 
 .home-slide {
+  background: $gray;
   width: 100%;
   height: 500px; /* define the height of slide */
   transition: height 0.3s ease;
@@ -71,12 +72,49 @@
 
   &__inner {
     @extend %bgcover;
-
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 60px;
   }
 
   &__caption {
-    @include absolute-center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.home-slide__caption {
+  h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 1rem;
+  }
+}
+
+.slide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $dark_pink;
+  color: $white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  min-width: 180px;
+  transition: opacity 0.3s;
+
+  &:hover {
+    color: $white;
+    opacity: 0.9;
+  }
+
+  i {
+    font-size: 0.8rem;
+    margin-left: 15px;
   }
 }

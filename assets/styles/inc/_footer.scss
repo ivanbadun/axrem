@@ -34,3 +34,39 @@
   font-size: 12px;
   text-align: center;
 }
+
+.footer {
+  background-color: $violet;
+
+  &__card {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: $white;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    min-height: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: $white;
+    }
+  }
+}
+
+.footer__text {
+  padding: 40px 0;
+  color: $white;
+}
+
+.footer__copyright {
+  padding: 0;
+  color: $gray;
+}
+
+.f__card {
+  width: 40%;
+}

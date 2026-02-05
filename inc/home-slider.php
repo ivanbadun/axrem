@@ -205,7 +205,7 @@ add_shortcode('slider', function () {
                     cssEase: 'ease',
                     fade: true,  // Cause trouble if used slidesToShow: more than one
                     // arrows: false,
-                    dots: true,
+                    dots: false,
                     infinite: true,
                     speed: 500,
                     autoplay: true,
@@ -215,6 +215,7 @@ add_shortcode('slider', function () {
                     slidesToScroll: 1,
                     rows: 0, // Prevent generating extra markup
                     slide: '.slick-slide', // Cause trouble with responsive settings
+                    appendArrows: $homeSlider
                 });
             }
         });
@@ -264,9 +265,22 @@ add_shortcode('slider', function () {
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <h3><?php the_title(); ?></h3>
-                                    <?php the_content(); ?>
-                                    <?php the_content(); ?>
+                                    <div class="slide-description">
+                                        <?php the_content(); ?>
+                                    </div>
 
+                                    <?php
+                                    $link_data = get_field('button_page_link', get_the_ID());
+                                    $text = get_field('button_text', get_the_ID());
+                                    ?>
+
+                                    <?php if( $link_data ): ?>
+                                        <a href="<?php echo esc_url($link_data['url']); ?>"
+                                           target="<?php echo esc_attr($link_data['target'] ?: '_self'); ?>"
+                                           class="slide-button">
+                                            <span><?php echo $text ? esc_html($text) : esc_html($link_data['title']); ?></span>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>

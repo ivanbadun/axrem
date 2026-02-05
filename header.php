@@ -30,7 +30,7 @@ use theme\FoundationNavigation;
 
 <!-- BEGIN of header -->
 <header class="header">
-    <div style='background-color: teal'>
+    <div class='section__logo'>
         <div class="grid-container medium-4 small-12 cell">
             <div class="logo text-center medium-text-left">
                 <h1>
@@ -39,14 +39,14 @@ use theme\FoundationNavigation;
             </div>
         </div>
     </div>
-    <div style='background-color: violet; display: flex; justify-content: space-between' >
+    <div class="section__menu">
         <div class="grid-container menu-grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="medium-8 small-12 cell">
-                    <?php if (has_nav_menu('header-menu')) { ?>
-                        <div class="title-bar hide-for-medium" data-responsive-toggle="main-menu" data-hide-for="medium">
-                            <button class="menu-icon" type="button" data-toggle aria-label="Menu" aria-controls="main-menu">
-                                <span></span></button>
+            <div class="grid-x grid-margin-x align-middle">
+
+                <div class="auto cell">
+                    <?php if (has_nav_menu('header-menu')) : ?>
+                        <div class="title-bar hide-for-medium" data-responsive-toggle="main-menu">
+                            <button class="menu-icon" type="button" data-toggle></button>
                             <div class="title-bar-title">Menu</div>
                         </div>
 
@@ -54,14 +54,20 @@ use theme\FoundationNavigation;
                             <?php wp_nav_menu([
                                 'theme_location' => 'header-menu',
                                 'menu_class' => 'menu header-menu',
-                                'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown" data-submenu-toggle="true" data-multi-open="false" data-close-on-click-inside="false">%3$s</ul>',
+                                'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
                                 'walker' => new FoundationNavigation(),
                             ]); ?>
                         </nav>
-                    <?php } ?>
+                    <?php endif; ?>
                 </div>
+
+                <div class="shrink cell search__form">
+                    <div class="header-search-wrapper">
+                        <?php get_search_form(); ?>
+                    </div>
+                </div>
+
             </div>
-            <div class='grid-container'><?php get_search_form(); ?></div>
         </div>
     </div>
 </header>

@@ -1,8 +1,8 @@
 <?php
 $featured_posts = get_field('selected_posts');
 ?>
-<div class="grid-container" style='display: flex; justify-content: space-between'>
-        <div class="medium-4 small-12 cell" style='width: 50%'>
+<div class="grid-container flex-between">
+        <div class="medium-4 small-12 cell w-60">
             <?php if( $featured_posts ): ?>
                 <div class='container__news'>
                     <?php foreach( $featured_posts as $post ): setup_postdata($post);
@@ -17,12 +17,27 @@ $featured_posts = get_field('selected_posts');
                 </div>
             <?php endif; ?>
 
-            <div style="margin: 0px; display: flex; text-transform: uppercase; align-items: center; justify-content: center; border: 1px solid gray; text-decoration: none;">
-                        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">show more</a>
-                    </div>
+            <div class="more__button">
+                <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Show more</a>
+            </div>
         </div>
-        <div style='width: 20%'>
-            <h1>tyt bydet sidebar</h1>
+        <div class='sidebar-home'>
+            <div class="sidebar-menu">
+                <ul class="sidebar-menu__list">
+                    <p class='sidebar-menu__header'>
+                        <?php if (get_field('text_news_sidebar')): ?>
+                            <?php the_field('text_news_sidebar') ?>
+                        <?php endif; ?>
+                    </p>
+                    <?php
+                    wp_list_categories(array(
+                        'orderby'    => 'name',
+                        'show_count' => 0,
+                        'title_li'   => ''
+                    ));
+                    ?>
+                </ul>
+            </div>
         </div>
 </div>
 
