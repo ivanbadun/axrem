@@ -60,7 +60,7 @@
                         <span>
                             <?php echo $text ? esc_html($text) : esc_html($link_data['title']); ?>
                         </span>
-                        <i class="fa fa-arrow-right" aria-hidden="true">с</i>
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     </span>
                         </a>
                     <?php endif; ?>

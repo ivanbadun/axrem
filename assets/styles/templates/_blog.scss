@@ -27,6 +27,16 @@
   margin-bottom: 20px;
 }
 
+.events-grid-layout .container__news {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 1024px) {
+  .events-grid-layout .container__news {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .card__news {
   background-size: cover;
   background-position: center;

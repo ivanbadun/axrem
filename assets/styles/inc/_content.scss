@@ -1,7 +1,14 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
 .main-content {
+  flex: 1 0 auto;
+  padding: 50px 0;
   background-color: $gray;
-  padding-top: 50px;
-  padding-bottom: 60px;
 }
 
 /* 404 page */
@@ -22,17 +29,18 @@
 }
 
 .w-60 {
-  width: 60%;
+  width: 50%;
 }
 
 .w-70 {
-  width: 70%;
+  width: 60%;
 }
 
 /* Top page */
 .tophome__sidebar {
   background-color: $dark_aqua;
   padding: 20px 0;
+  width: 75%;
 }
 
 .tophome-menu__header {
@@ -59,7 +67,7 @@
 }
 
 .sidebar-home {
-  width: 25%;
+  width: 35%;
 }
 
 .page-button {
@@ -67,9 +75,15 @@
   text-decoration: none;
   background-color: $white;
   color: $violet;
-  padding: 12px 20px;
+  padding: 20px 20px;
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 20px;
+  width: 75%;
+
+  &:hover {
+    background-color: $gray;
+    color: lighten($violet, 20%);
+  }
 }
 
 .page-button-text {
@@ -79,9 +93,14 @@
 }
 
 /* News page */
+.news {
+  background-color: $gray;
+}
+
 .sidebar-menu {
   background-color: $violet;
   padding: 20px 0;
+  width: 75%;
 }
 
 .sidebar-menu__list {
@@ -123,6 +142,7 @@
 }
 
 .more__button {
+  background-color: $white;
   margin: 0px;
   display: flex;
   align-items: center;
@@ -132,8 +152,16 @@
   font-size: 18px;
   padding: 10px;
 
-  a {
+  p {
     color: $violet;
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:hover p {
+    color: lighten($violet, 20%);
   }
 }
 
@@ -202,4 +230,79 @@
 .page-description {
   margin-bottom: 40px;
   max-width: 900px;
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $violet;
+  padding: 15px 20px;
+  margin: 20px 0;
+  background: #fff;
+
+  ul.pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+
+    li {
+      margin: 0 8px;
+      font-size: 18px;
+      font-weight: bold;
+      color: $violet;
+      cursor: pointer;
+
+      a {
+        color: $violet;
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+          color: lighten($violet, 20%);
+        }
+      }
+
+      &.current,
+      .current {
+        color: $pink;
+        background: none;
+      }
+
+      &.unavailable,
+      &.ellipsis {
+        cursor: default;
+        padding: 0 5px;
+      }
+
+      &.pagination-previous,
+      &.pagination-next {
+        a::before,
+        a::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-container.flex-between {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .w-70 {
+    width: 90%;
+  }
+
+  .sidebar-home {
+    width: 40%;
+    margin-top: 30px;
+  }
 }

@@ -5,6 +5,9 @@
  * Loop container for single post content
  */
 get_header(); ?>
+<div class="grid-container breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+    <?php if(function_exists('bcn_display')) { bcn_display(); }?>
+</div>
 <main class="main-content">
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
@@ -45,6 +48,14 @@ get_header(); ?>
 
             <!-- BEGIN of sidebar -->
             <div class="large-4 medium-4 small-12 cell sidebar">
+                <div class="media-enquiry-widget">
+                    <p>
+                        <a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class='back'>
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            <span>Back to listing</span>
+                        </a>
+                    </p>
+                </div>
                 <?php get_sidebar('right'); ?>
                 <?php
                 get_template_part('templates/events-sidebar');

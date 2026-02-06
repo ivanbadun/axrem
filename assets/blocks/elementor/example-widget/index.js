@@ -1,9 +1,14 @@
 import $ from 'jquery';
 
-$(document).ready(function () {
-  exampleWidget();
-});
+$(() => {
+  $(document).on('click', '.menu-icon', (e) => {
+    e.preventDefault();
 
-function exampleWidget() {
-  $('.js-example-widget').each(function () {});
-}
+    const targetId = $(e.currentTarget).attr('data-toggle');
+    const $menu = $('#' + targetId);
+
+    if ($menu.length) {
+      $menu.toggleClass('is-open');
+    }
+  });
+});

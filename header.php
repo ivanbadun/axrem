@@ -31,7 +31,7 @@ use theme\FoundationNavigation;
 <!-- BEGIN of header -->
 <header class="header">
     <div class='section__logo'>
-        <div class="grid-container medium-4 small-12 cell">
+        <div class="grid-container">
             <div class="logo text-center medium-text-left">
                 <h1>
                     <?php show_custom_logo(); ?><span class="show-for-sr"><?php echo get_bloginfo('name'); ?></span>
@@ -39,26 +39,26 @@ use theme\FoundationNavigation;
             </div>
         </div>
     </div>
+
     <div class="section__menu">
-        <div class="grid-container menu-grid-container">
+        <div class="grid-container">
             <div class="grid-x grid-margin-x align-middle">
 
-                <div class="auto cell">
-                    <?php if (has_nav_menu('header-menu')) : ?>
-                        <div class="title-bar hide-for-medium" data-responsive-toggle="main-menu">
-                            <button class="menu-icon" type="button" data-toggle></button>
-                            <div class="title-bar-title">Menu</div>
-                        </div>
+                <div class="shrink cell hide-for-medium">
+                    <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+                </div>
 
-                        <nav class="top-bar" id="main-menu">
-                            <?php wp_nav_menu([
+                <div class="auto cell">
+                    <nav class="top-bar" id="main-menu" data-toggler=".is-open">
+                        <?php if (has_nav_menu('header-menu')) :
+                            wp_nav_menu([
                                 'theme_location' => 'header-menu',
-                                'menu_class' => 'menu header-menu',
+                                'menu_class' => 'menu header-menu vertical medium-horizontal',
                                 'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
                                 'walker' => new FoundationNavigation(),
-                            ]); ?>
-                        </nav>
-                    <?php endif; ?>
+                            ]);
+                        endif; ?>
+                    </nav>
                 </div>
 
                 <div class="shrink cell search__form">

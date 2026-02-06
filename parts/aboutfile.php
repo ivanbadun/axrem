@@ -1,7 +1,7 @@
 <?php
 $image = get_field('about_image');
 ?>
-<div class="about" style='background-image: url("<?php echo esc_url($image['url']); ?>")'>
+<div class="about" style='background-image: linear-gradient(rgba(65, 41, 110, 0.5), rgba(65, 41, 110, 0.5)), url("<?php echo esc_url($image['url']); ?>");'>
     <div class="grid-container flex-between">
         <div class="medium-4 small-12 cell w-60">
             <?php if (get_field('about')): ?>
@@ -26,7 +26,7 @@ $image = get_field('about_image');
                                         <span>
                                             <?php echo $text ? esc_html($text) : esc_html($link_data['title']); ?>
                                         </span>
-                                        <i class="fa fa-arrow-right" aria-hidden="true">с</i>
+                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                     </span>
                                 </a>
                         <?php endif; ?>

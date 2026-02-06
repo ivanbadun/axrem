@@ -15,19 +15,19 @@ import objectFitImages from 'object-fit-images';
  * Import scripts from Custom Divi blocks
  */
 // eslint-disable-next-line import/no-unresolved
-// import '../blocks/divi/**/index.js';
+import '../blocks/divi/**/index.js';
 
 /**
  * Import scripts from Custom Elementor widgets
  */
 // eslint-disable-next-line import/no-unresolved
-// import '../blocks/elementor/**/index.js';
+import '../blocks/elementor/**/index.js';
 
 /**
  * Import scripts from Custom ACF Gutenberg blocks
  */
 // eslint-disable-next-line import/no-unresolved
-// import '../blocks/gutenberg/**/index.js';
+import '../blocks/gutenberg/**/index.js';
 
 /**
  * Init foundation

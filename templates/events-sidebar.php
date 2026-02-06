@@ -14,18 +14,31 @@ $events_query = new WP_Query($args);
     <div class="widget-content">
         <?php if ( $events_query->have_posts() ) : ?>
             <?php while ( $events_query->have_posts() ) : $events_query->the_post();
-                $event_date = get_field('event_date');
+                $start_date = get_field('event_start_date');
+                $end_date   = get_field('event_end_date');
                 ?>
-                <div class="event-entry">
-                    <div class="event-title"><?php the_title(); ?></div>
-                    <div class="event-date"><?php echo esc_html($event_date); ?></div>
-                </div>
+
+                <a href="<?php the_permalink(); ?>" class="event-entry-link">
+                    <div class="event-entry">
+                        <div class="event-title"><?php the_title(); ?></div>
+                        <div class="event-date">
+                            <?php
+                            if ( $start_date && $end_date && ($start_date !== $end_date) ) {
+                                echo esc_html($start_date) . ' — ' . esc_html($end_date);
+                            } elseif ( $start_date ) {
+                                echo esc_html($start_date);
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </a>
+
             <?php endwhile; wp_reset_postdata(); ?>
         <?php else : ?>
             <p>No upcoming events.</p>
         <?php endif; ?>
 
-        <a href="/events" class="all-events-link">All Events</a>
+        <a href="<?php echo home_url('/events/'); ?>" class="all-events-link">All Events</a>
     </div>
 </div>
 

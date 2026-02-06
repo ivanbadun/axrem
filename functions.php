@@ -178,3 +178,23 @@ function register_events_widget_block() {
         ));
     }
 }
+
+function enqueue_font_awesome() {
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_font_awesome' );
+
+add_action('acf/init', 'my_register_blocks');
+function my_register_blocks() {
+    if( function_exists('acf_register_block_type') ) {
+        acf_register_block_type(array(
+            'name'              => 'contact_widget',
+            'title'             => 'Contact Widget',
+            'description'       => 'Contact Widget',
+            'render_template'   => 'templates/contact-widget.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-users',
+            'keywords'          => array( 'contact', 'media', 'acf' ),
+        ));
+    }
+}

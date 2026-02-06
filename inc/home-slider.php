@@ -233,7 +233,12 @@ add_shortcode('slider', function () {
             <?php while ($slider->have_posts()) {
                 $slider->the_post(); ?>
                 <div class="slick-slide home-slide">
-                    <div class="home-slide__inner" <?php bg(get_attached_img_url(get_the_ID(), 'full_hd')); ?>>
+                    <?php
+                    $img_url = get_attached_img_url(get_the_ID(), 'full_hd');
+                    $combined_bg = "background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), url('{$img_url}');";
+                    ?>
+
+                    <div class="home-slide__inner" style="<?php echo $combined_bg; ?>">
                         <?php $bg_video_url = get_post_meta(get_the_ID(), 'slide_video_bg', true); ?>
                         <?php if ('video' == get_post_format() && $bg_video_url) { ?>
                             <div class="videoHolder show-for-large"
